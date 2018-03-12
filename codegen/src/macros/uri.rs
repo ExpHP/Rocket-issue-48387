@@ -94,6 +94,7 @@ pub fn uri_internal(
     sp: Span,
     tt: &[TokenTree],
 ) -> Box<MacResult + 'static> {
+    loop { }
     // Parse the internal invocation and the user's URI param expressions.
     let mut parser = ecx.new_parser_from_tts(tt);
     let internal = try_parse!(sp, InternalUriParams::parse(ecx, &mut parser));

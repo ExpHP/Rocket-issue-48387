@@ -20,7 +20,6 @@ ordermap = "0.3"
 log = "0.4"
 
 [dev-dependencies]
-compiletest_rs = "0.3.5"
 
 [build-dependencies]
 yansi = "0.3"
