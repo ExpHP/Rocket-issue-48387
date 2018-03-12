@@ -6,6 +6,7 @@ This is `rocket_codegen` minimized down to 14 exported macros that just `loop { 
 
 ```
 $ git clone https://github.com/ExpHP/Rocket-issue-48387
+$ cd Rocket-issue-48387
 $ cargo build --example=issue-48387
    Compiling rocket_codegen v0.4.0-dev (file:///home/lampam/asd/clone/Rocket)
 error: internal compiler error: Error constructed but not emitted
