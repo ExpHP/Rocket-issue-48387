@@ -223,8 +223,6 @@
 //! ROCKET_CODEGEN_DEBUG=1 cargo build
 //! ```
 
-
-#[macro_use] extern crate log;
 extern crate syntax;
 extern crate syntax_ext;
 extern crate syntax_pos;
@@ -233,7 +231,6 @@ extern crate rocket;
 extern crate ordermap;
 
 #[macro_use] mod utils;
-mod parser;
 mod macros;
 mod decorators;
 
@@ -246,7 +243,6 @@ const DEBUG_ENV_VAR: &'static str = "ROCKET_CODEGEN_DEBUG";
 
 const ROUTE_STRUCT_PREFIX: &'static str = "static_rocket_route_info_for_";
 const CATCH_STRUCT_PREFIX: &'static str = "static_rocket_catch_info_for_";
-const URI_INFO_MACRO_PREFIX: &'static str = "rocket_uri_for_";
 
 macro_rules! register_decorators {
     ($registry:expr, $($name:expr => $func:ident),+) => (
