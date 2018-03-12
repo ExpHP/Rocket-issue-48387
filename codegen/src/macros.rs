@@ -1,7 +1,18 @@
-
 use syntax::codemap::Span;
+use syntax::tokenstream::TokenTree;
 use syntax::ext::base::{ExtCtxt, MacResult};
-use syntax::tokenstream::{TokenTree};
+
+#[rustfmt_skip]
+pub fn routes(_: &mut ExtCtxt, _: Span, _: &[TokenTree])
+        -> Box<MacResult + 'static> {
+    loop { }
+}
+
+#[rustfmt_skip]
+pub fn catchers(_: &mut ExtCtxt, _: Span, _: &[TokenTree])
+        -> Box<MacResult + 'static> {
+    loop { }
+}
 
 pub fn uri(
     _: &mut ExtCtxt,
@@ -11,7 +22,6 @@ pub fn uri(
     loop { }
 }
 
-#[allow(unused_imports)]
 pub fn uri_internal(
     _: &mut ExtCtxt,
     _: Span,

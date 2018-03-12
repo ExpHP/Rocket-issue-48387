@@ -227,22 +227,13 @@ extern crate syntax;
 extern crate syntax_ext;
 extern crate syntax_pos;
 extern crate rustc_plugin;
-extern crate rocket;
-extern crate ordermap;
 
-#[macro_use] mod utils;
 mod macros;
 mod decorators;
 
-use std::env;
 use rustc_plugin::Registry;
 use syntax::ext::base::SyntaxExtension;
 use syntax::symbol::Symbol;
-
-const DEBUG_ENV_VAR: &'static str = "ROCKET_CODEGEN_DEBUG";
-
-const ROUTE_STRUCT_PREFIX: &'static str = "static_rocket_route_info_for_";
-const CATCH_STRUCT_PREFIX: &'static str = "static_rocket_catch_info_for_";
 
 macro_rules! register_decorators {
     ($registry:expr, $($name:expr => $func:ident),+) => (
@@ -269,11 +260,6 @@ macro_rules! register_macros {
 /// Compiler hook for Rust to register plugins.
 #[plugin_registrar]
 pub fn plugin_registrar(reg: &mut Registry) {
-    // Enable logging early if the DEBUG_ENV_VAR is set.
-    if env::var(DEBUG_ENV_VAR).is_ok() {
-        ::rocket::logger::init(::rocket::config::LoggingLevel::Debug);
-    }
-
     register_macros!(reg,
         "routes" => routes,
         "catchers" => catchers,

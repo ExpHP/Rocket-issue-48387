@@ -1,7 +1,18 @@
-
-use syntax::codemap::{Span};
-use syntax::ast::{MetaItem};
 use syntax::ext::base::{Annotatable, ExtCtxt};
+use syntax::ast::{MetaItem};
+use syntax::codemap::Span;
+
+pub fn catch_decorator(
+    _: &mut ExtCtxt, _: Span, _: &MetaItem, _: Annotatable
+) -> Vec<Annotatable> {
+    loop { }
+}
+
+pub fn from_form_derive(
+    _: &mut ExtCtxt, _: Span, _: &MetaItem, _: &Annotatable, _: &mut FnMut(Annotatable)
+) {
+    loop { }
+}
 
 pub fn route_decorator(
     _ecx: &mut ExtCtxt, _: Span, _: &MetaItem, _: Annotatable
@@ -12,7 +23,10 @@ pub fn route_decorator(
 macro_rules! method_decorator {
     ($name:ident, $method:ident) => (
         pub fn $name(
-            _: &mut ExtCtxt, _: Span, _: &MetaItem, _: Annotatable
+            _: &mut ExtCtxt,
+            _: Span,
+            _: &MetaItem,
+            _: Annotatable
         ) -> Vec<Annotatable> {
             loop { }
         }

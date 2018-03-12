@@ -15,9 +15,6 @@ build = "build.rs"
 plugin = true
 
 [dependencies]
-rocket = { version = "0.4.0-dev", path = "../lib/" }
-ordermap = "0.3"
-log = "0.4"
 
 [dev-dependencies]
 
